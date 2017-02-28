@@ -1,20 +1,25 @@
 package srcGUI;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import computer.Memory;
+
 public class MemoryPanel extends JPanel
 {
-	// testing to see if the Repo is working properly!!
+	JList<Memory> list;
+	DefaultListModel<Memory> listModel;
 
 	/**
 	 * Create the panel.
 	 */
-	public MemoryPanel(JFrame frame)
+	public MemoryPanel(JFrame frame, Memory pc)
 	{
 		this.setBounds(100, 100, 1920, 1080);
 		setLayout(null);
@@ -34,10 +39,16 @@ public class MemoryPanel extends JPanel
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(1358, 216, 2, 2);
 		instructionTA.add(scrollPane);
+
+		listModel = new DefaultListModel<Memory>();
+
+		list = new JList<Memory>(listModel);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(0, 52, 990, 980);
 		add(scrollPane_1);
+
+
 
 	}
 }
