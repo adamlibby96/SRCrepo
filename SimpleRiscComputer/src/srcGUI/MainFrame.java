@@ -1,6 +1,8 @@
 package srcGUI;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -8,13 +10,15 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import problemDomain.Computer;
+
 public class MainFrame extends JFrame
 {
-
+	
 	private JPanel contentPane;
+	private JFrame currentFrame = this;
 	
 
-	
 	/**
 	 * Launch the application.
 	 */
@@ -27,7 +31,8 @@ public class MainFrame extends JFrame
 			{
 				try
 				{
-					MainFrame frame = new MainFrame();
+					Computer pc = new Computer(10);
+					MainFrame frame = new MainFrame(pc);
 					frame.setVisible(true);
 				} catch (Exception e)
 				{
@@ -36,11 +41,11 @@ public class MainFrame extends JFrame
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */
-	public MainFrame()
+	public MainFrame(Computer pc)
 	{
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,12 +54,25 @@ public class MainFrame extends JFrame
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 1920, 30);
 		setJMenuBar(menuBar);
+		
+		JMenu Memory = new JMenu("Memory");
+		Memory.addActionListener(new ActionListener() {
 
-		JMenu processor = new JMenu("Processor");
-		menuBar.add(processor);
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				MemoryPanel mp = new MemoryPanel(currentFrame, pc);
+				currentFrame.getContentPane().removeAll();
+				currentFrame.getContentPane().add(mp);
+				currentFrame.revalidate();
+				
+			}
+			
+		});
+		menuBar.add(Memory);
 	}
 }

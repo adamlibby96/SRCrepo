@@ -1,17 +1,20 @@
 package problemDomain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import computer.Memory;
 
 public class Computer
 {
-	
+
 	List<Memory> memoryList;
-
-
+	
+	
 	public Computer(int MemSize)
 	{
+
+		memoryList = new ArrayList<Memory>();
 		// initialize the list of Memory elements with the address
 		// of i and everything set to 0 for the start.
 		for (int i = 0; i < MemSize; i++)
