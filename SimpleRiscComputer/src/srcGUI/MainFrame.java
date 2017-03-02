@@ -65,7 +65,7 @@ public class MainFrame extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				MemoryPanel mp = new MemoryPanel(currentFrame, pc);
+				memoryPanel mp = new memoryPanel(currentFrame, pc);
 				currentFrame.getContentPane().removeAll();
 				currentFrame.getContentPane().add(mp);
 				currentFrame.revalidate();

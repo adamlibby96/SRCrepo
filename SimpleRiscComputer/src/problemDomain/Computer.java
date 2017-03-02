@@ -7,19 +7,20 @@ import computer.Memory;
 
 public class Computer
 {
-
+	
 	List<Memory> memoryList;
-	
-	
+	String bus;
+
+
 	public Computer(int MemSize)
 	{
-
+		
 		memoryList = new ArrayList<Memory>();
 		// initialize the list of Memory elements with the address
 		// of i and everything set to 0 for the start.
 		for (int i = 0; i < MemSize; i++)
 		{
-			memoryList.add(new Memory(i, 0, 0, 0, 0, 0));
+			memoryList.add(new Memory(i, 0));
 		}
 	}
 }

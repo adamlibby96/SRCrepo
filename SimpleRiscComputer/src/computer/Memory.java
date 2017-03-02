@@ -4,8 +4,8 @@ public class Memory
 {
 	private int address;
 	private int decimal;
-	private int binary;
-	private int hex;
+	private String binary;
+	private String hex;
 	private int DecWord;
 	private int HexWord;
 
@@ -13,20 +13,20 @@ public class Memory
 	{
 		this.address = 0;
 		this.decimal = 0;
-		this.binary = Integer.parseInt("00000000", 2);
-		this.hex = Integer.decode("#00");
+		this.binary = Integer.toBinaryString(this.decimal);
+		this.hex = Integer.toHexString(this.decimal);
 		this.DecWord = 0;
 		this.HexWord = Integer.decode("#00000000");
 	}
 
-	public Memory(int addr, int dec, int bin, int hex, int decWord, int Hexword)
+	public Memory(int addr, int dec)
 	{
 		this.address = addr;
 		this.decimal = dec;
-		this.binary = bin;
-		this.hex = hex;
-		this.DecWord = decWord;
-		this.HexWord = Hexword;
+		this.binary = Integer.toBinaryString(dec);
+		this.hex = Integer.toHexString(dec);
+		this.DecWord = 0;
+		this.HexWord = 0;
 	}
 
 	public int getAddress()
@@ -49,22 +49,22 @@ public class Memory
 		this.decimal = decimal;
 	}
 	
-	public int getBinary()
+	public String getBinary()
 	{
 		return binary;
 	}
 	
-	public void setBinary(int binary)
+	public void setBinary(String binary)
 	{
 		this.binary = binary;
 	}
 	
-	public int getHex()
+	public String getHex()
 	{
 		return hex;
 	}
 	
-	public void setHex(int hex)
+	public void setHex(String hex)
 	{
 		this.hex = hex;
 	}
@@ -88,6 +88,5 @@ public class Memory
 	{
 		HexWord = hexWord;
 	}
-	
 
 }

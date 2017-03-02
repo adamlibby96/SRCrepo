@@ -2,6 +2,7 @@ package srcGUI;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -9,8 +10,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import computer.Memory;
+import problemDomain.Computer;
 
-public class memoryJPanel extends JPanel
+public class memoryPanel extends JPanel
 {
 	JList<Memory> list;
 	DefaultListModel<Memory> listModel;
@@ -18,7 +20,7 @@ public class memoryJPanel extends JPanel
 	/**
 	 * Create the panel.
 	 */
-	public memoryJPanel()
+	public memoryPanel(JFrame frame, Computer pc)
 	{
 		this.setBounds(100, 100, 1920, 1080);
 		setLayout(null);
@@ -47,6 +49,7 @@ public class memoryJPanel extends JPanel
 		scrollPane_1.setBounds(0, 52, 990, 980);
 		add(scrollPane_1);
 
-	}
 
+
+	}
 }
